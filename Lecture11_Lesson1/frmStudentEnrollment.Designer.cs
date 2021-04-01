@@ -29,6 +29,7 @@ namespace Lecture11_Lesson1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -42,7 +43,7 @@ namespace Lecture11_Lesson1
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.radioButtonFemale = new System.Windows.Forms.RadioButton();
+            this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.cbNationality = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -79,6 +80,8 @@ namespace Lecture11_Lesson1
             this.dateTimePickerGraduationDate = new System.Windows.Forms.DateTimePicker();
             this.txtSchool = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.openFileDialogImages = new System.Windows.Forms.OpenFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -93,7 +96,7 @@ namespace Lecture11_Lesson1
             this.btnSubmit.Location = new System.Drawing.Point(12, 687);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(113, 34);
-            this.btnSubmit.TabIndex = 0;
+            this.btnSubmit.TabIndex = 14;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -214,7 +217,7 @@ namespace Lecture11_Lesson1
             this.groupBox2.Location = new System.Drawing.Point(160, 27);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1261, 215);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Personal Information";
             // 
@@ -229,24 +232,24 @@ namespace Lecture11_Lesson1
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.radioButtonFemale);
+            this.groupBox7.Controls.Add(this.rbFemale);
             this.groupBox7.Controls.Add(this.rbMale);
             this.groupBox7.Location = new System.Drawing.Point(462, 79);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(178, 117);
-            this.groupBox7.TabIndex = 19;
+            this.groupBox7.TabIndex = 8;
             this.groupBox7.TabStop = false;
             // 
-            // radioButtonFemale
+            // rbFemale
             // 
-            this.radioButtonFemale.AutoSize = true;
-            this.radioButtonFemale.Location = new System.Drawing.Point(16, 54);
-            this.radioButtonFemale.Name = "radioButtonFemale";
-            this.radioButtonFemale.Size = new System.Drawing.Size(73, 22);
-            this.radioButtonFemale.TabIndex = 1;
-            this.radioButtonFemale.TabStop = true;
-            this.radioButtonFemale.Text = "Female";
-            this.radioButtonFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.AutoSize = true;
+            this.rbFemale.Location = new System.Drawing.Point(16, 54);
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Size = new System.Drawing.Size(73, 22);
+            this.rbFemale.TabIndex = 8;
+            this.rbFemale.TabStop = true;
+            this.rbFemale.Text = "Female";
+            this.rbFemale.UseVisualStyleBackColor = true;
             // 
             // rbMale
             // 
@@ -254,18 +257,23 @@ namespace Lecture11_Lesson1
             this.rbMale.Location = new System.Drawing.Point(16, 18);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(56, 22);
-            this.rbMale.TabIndex = 0;
+            this.rbMale.TabIndex = 8;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
             // cbNationality
             // 
+            this.cbNationality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNationality.FormattingEnabled = true;
+            this.cbNationality.Items.AddRange(new object[] {
+            "Jordanian",
+            "Syrian",
+            "Iraqi"});
             this.cbNationality.Location = new System.Drawing.Point(747, 96);
             this.cbNationality.Name = "cbNationality";
             this.cbNationality.Size = new System.Drawing.Size(200, 26);
-            this.cbNationality.TabIndex = 18;
+            this.cbNationality.TabIndex = 9;
             // 
             // label7
             // 
@@ -287,7 +295,7 @@ namespace Lecture11_Lesson1
             this.cbCityOfBirth.Location = new System.Drawing.Point(120, 161);
             this.cbCityOfBirth.Name = "cbCityOfBirth";
             this.cbCityOfBirth.Size = new System.Drawing.Size(200, 26);
-            this.cbCityOfBirth.TabIndex = 16;
+            this.cbCityOfBirth.TabIndex = 7;
             // 
             // label6
             // 
@@ -309,7 +317,7 @@ namespace Lecture11_Lesson1
             this.cbCountryOfBirth.Location = new System.Drawing.Point(120, 129);
             this.cbCountryOfBirth.Name = "cbCountryOfBirth";
             this.cbCountryOfBirth.Size = new System.Drawing.Size(200, 26);
-            this.cbCountryOfBirth.TabIndex = 14;
+            this.cbCountryOfBirth.TabIndex = 6;
             // 
             // label5
             // 
@@ -325,7 +333,7 @@ namespace Lecture11_Lesson1
             this.dateTimePickerDOB.Location = new System.Drawing.Point(120, 93);
             this.dateTimePickerDOB.Name = "dateTimePickerDOB";
             this.dateTimePickerDOB.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePickerDOB.TabIndex = 12;
+            this.dateTimePickerDOB.TabIndex = 5;
             // 
             // label4
             // 
@@ -341,7 +349,7 @@ namespace Lecture11_Lesson1
             this.txtLastName.Location = new System.Drawing.Point(1048, 28);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 26);
-            this.txtLastName.TabIndex = 10;
+            this.txtLastName.TabIndex = 4;
             // 
             // label3
             // 
@@ -357,7 +365,7 @@ namespace Lecture11_Lesson1
             this.txtThirdName.Location = new System.Drawing.Point(747, 28);
             this.txtThirdName.Name = "txtThirdName";
             this.txtThirdName.Size = new System.Drawing.Size(200, 26);
-            this.txtThirdName.TabIndex = 8;
+            this.txtThirdName.TabIndex = 3;
             // 
             // label2
             // 
@@ -373,7 +381,7 @@ namespace Lecture11_Lesson1
             this.txtSecondName.Location = new System.Drawing.Point(440, 28);
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(200, 26);
-            this.txtSecondName.TabIndex = 6;
+            this.txtSecondName.TabIndex = 2;
             // 
             // label1
             // 
@@ -389,7 +397,7 @@ namespace Lecture11_Lesson1
             this.txtFirstName.Location = new System.Drawing.Point(120, 28);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(200, 26);
-            this.txtFirstName.TabIndex = 4;
+            this.txtFirstName.TabIndex = 1;
             // 
             // lblFirstName
             // 
@@ -411,7 +419,7 @@ namespace Lecture11_Lesson1
             this.groupBox3.Location = new System.Drawing.Point(12, 248);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(518, 208);
-            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Contact Information";
             // 
@@ -420,7 +428,7 @@ namespace Lecture11_Lesson1
             this.txtMobile.Location = new System.Drawing.Point(91, 152);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(200, 26);
-            this.txtMobile.TabIndex = 26;
+            this.txtMobile.TabIndex = 12;
             // 
             // label15
             // 
@@ -436,7 +444,7 @@ namespace Lecture11_Lesson1
             this.txtEmail.Location = new System.Drawing.Point(91, 37);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(409, 26);
-            this.txtEmail.TabIndex = 24;
+            this.txtEmail.TabIndex = 10;
             // 
             // label14
             // 
@@ -452,7 +460,7 @@ namespace Lecture11_Lesson1
             this.txtPhone.Location = new System.Drawing.Point(91, 95);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 26);
-            this.txtPhone.TabIndex = 22;
+            this.txtPhone.TabIndex = 11;
             // 
             // label13
             // 
@@ -479,9 +487,11 @@ namespace Lecture11_Lesson1
             this.button1.Location = new System.Drawing.Point(10, 179);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 30);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 20;
             this.button1.Text = "Upload";
+            this.toolTip1.SetToolTip(this.button1, "Please upload the student\'s photo");
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBoxStudentPicture
             // 
@@ -489,6 +499,7 @@ namespace Lecture11_Lesson1
             this.pictureBoxStudentPicture.Location = new System.Drawing.Point(7, 28);
             this.pictureBoxStudentPicture.Name = "pictureBoxStudentPicture";
             this.pictureBoxStudentPicture.Size = new System.Drawing.Size(129, 145);
+            this.pictureBoxStudentPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxStudentPicture.TabIndex = 0;
             this.pictureBoxStudentPicture.TabStop = false;
             // 
@@ -579,6 +590,10 @@ namespace Lecture11_Lesson1
             this.label16.TabIndex = 27;
             this.label16.Text = "School";
             // 
+            // openFileDialogImages
+            // 
+            this.openFileDialogImages.FileName = "openFileDialog1";
+            // 
             // frmStudentEnrollment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -626,7 +641,7 @@ namespace Lecture11_Lesson1
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.RadioButton radioButtonFemale;
+        private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.ComboBox cbNationality;
         private System.Windows.Forms.Label label7;
@@ -663,6 +678,8 @@ namespace Lecture11_Lesson1
         private System.Windows.Forms.DateTimePicker dateTimePickerGraduationDate;
         private System.Windows.Forms.TextBox txtSchool;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.OpenFileDialog openFileDialogImages;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
