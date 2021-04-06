@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -132,15 +133,27 @@ namespace Lecture11_Lesson1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openFileDialogImages.ShowDialog();
+            openFileDialogImages.Title = "Browse Images";
+            openFileDialogImages.InitialDirectory = Directory.GetCurrentDirectory();
+            openFileDialogImages.CheckFileExists = true;
+            openFileDialogImages.CheckPathExists = true;
+            openFileDialogImages.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF";
+            openFileDialogImages.ReadOnlyChecked = true;
+            openFileDialogImages.ShowReadOnly = true;
+            openFileDialogImages.FileName = "";
 
-            string photoFileName = openFileDialogImages.FileName;
+            if(openFileDialogImages.ShowDialog() == DialogResult.OK)
+            {
+                string photoFileName = openFileDialogImages.FileName;
 
-            Bitmap studentImage = new Bitmap(photoFileName);
+                Bitmap studentImage = new Bitmap(photoFileName);
 
-            pictureBoxStudentPicture.Image = studentImage;
+                pictureBoxStudentPicture.Image = studentImage;
 
-            student.StudentPhoto = photoFileName;
+                student.StudentPhoto = photoFileName;
+            }
+
+            
         }
     }
 }
