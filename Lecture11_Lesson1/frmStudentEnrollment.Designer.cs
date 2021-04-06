@@ -62,11 +62,9 @@ namespace Lecture11_Lesson1
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtMobile = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -82,6 +80,8 @@ namespace Lecture11_Lesson1
             this.label16 = new System.Windows.Forms.Label();
             this.openFileDialogImages = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
+            this.txtMobile = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -411,10 +411,10 @@ namespace Lecture11_Lesson1
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtMobile);
+            this.groupBox3.Controls.Add(this.txtPhone);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.txtEmail);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.txtPhone);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Location = new System.Drawing.Point(12, 248);
             this.groupBox3.Name = "groupBox3";
@@ -422,13 +422,6 @@ namespace Lecture11_Lesson1
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Contact Information";
-            // 
-            // txtMobile
-            // 
-            this.txtMobile.Location = new System.Drawing.Point(91, 152);
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(200, 26);
-            this.txtMobile.TabIndex = 12;
             // 
             // label15
             // 
@@ -454,13 +447,6 @@ namespace Lecture11_Lesson1
             this.label14.Size = new System.Drawing.Size(41, 18);
             this.label14.TabIndex = 23;
             this.label14.Text = "Email";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(91, 95);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(200, 26);
-            this.txtPhone.TabIndex = 11;
             // 
             // label13
             // 
@@ -594,12 +580,28 @@ namespace Lecture11_Lesson1
             // 
             this.openFileDialogImages.FileName = "openFileDialog1";
             // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(91, 95);
+            this.txtPhone.Mask = "(7)00000000";
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(200, 26);
+            this.txtPhone.TabIndex = 26;
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.Location = new System.Drawing.Point(91, 152);
+            this.txtMobile.Mask = "(7)00000000";
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(200, 26);
+            this.txtMobile.TabIndex = 27;
+            // 
             // frmStudentEnrollment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1433, 733);
+            this.ClientSize = new System.Drawing.Size(1433, 735);
             this.Controls.Add(this.btnPictureUpload);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -660,11 +662,9 @@ namespace Lecture11_Lesson1
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtMobile;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button1;
@@ -680,6 +680,8 @@ namespace Lecture11_Lesson1
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.OpenFileDialog openFileDialogImages;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.MaskedTextBox txtMobile;
+        private System.Windows.Forms.MaskedTextBox txtPhone;
     }
 }
 

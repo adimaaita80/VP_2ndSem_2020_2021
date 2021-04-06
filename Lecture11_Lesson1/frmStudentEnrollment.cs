@@ -13,8 +13,12 @@ namespace Lecture11_Lesson1
 {
     public partial class frmStudentEnrollment : Form
     {
+        private StudentsTable studentTable;
+
         private Student student; // = new Student();
         private Validator validator;
+
+        private int studentIdCounter = 1;
 
         public frmStudentEnrollment()
         {
@@ -23,17 +27,20 @@ namespace Lecture11_Lesson1
 
         private void frmStudentEnrollment_Load(object sender, EventArgs e)
         {
-            student = new Student();
             
+            studentTable = new StudentsTable();
+
             txtFirstName.Focus();
         }
 
         /* The btnSubmit_Click method is executed when the btnSubmit button is clicked (it is the Click event handler). */
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            student = new Student();
+
             validator = new Validator();
 
-            student.StudentId = 1;
+            student.StudentId = studentIdCounter;
 
             if (!string.IsNullOrEmpty(txtFirstName.Text))
                 student.StudentFirstName = txtFirstName.Text;
@@ -126,6 +133,12 @@ namespace Lecture11_Lesson1
                 // Add your code here (2)
 
                 MessageBox.Show(studentInformationReport);
+
+                studentTable.Students.Add(student);
+
+                
+
+                studentIdCounter++;
             }
 
            
