@@ -36,6 +36,52 @@ namespace Lecture11_Lesson1
         /* The btnSubmit_Click method is executed when the btnSubmit button is clicked (it is the Click event handler). */
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            ReadFormData();
+
+            if(validator.ErrorExists)
+            {
+                MessageBox.Show(validator.ErrorMessage);
+            }
+            else
+            {
+                studentTable.Students.Add(student);
+                studentIdCounter++;
+
+                PrintStudentReport(student);
+
+                DisplayStudentRecords();
+
+                ClearForm();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openFileDialogImages.Title = "Browse Images";
+            openFileDialogImages.InitialDirectory = Directory.GetCurrentDirectory();
+            openFileDialogImages.CheckFileExists = true;
+            openFileDialogImages.CheckPathExists = true;
+            openFileDialogImages.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF";
+            openFileDialogImages.ReadOnlyChecked = true;
+            openFileDialogImages.ShowReadOnly = true;
+            openFileDialogImages.FileName = "";
+
+            if(openFileDialogImages.ShowDialog() == DialogResult.OK)
+            {
+                string photoFileName = openFileDialogImages.FileName;
+
+                Bitmap studentImage = new Bitmap(photoFileName);
+
+                pictureBoxStudentPicture.Image = studentImage;
+
+                student.StudentPhoto = photoFileName;
+            }
+
+            
+        }
+
+        private void ReadFormData()
+        {
             student = new Student();
 
             validator = new Validator();
@@ -50,7 +96,7 @@ namespace Lecture11_Lesson1
                 validator.ErrorMessage += "Please enter first name \n";
             }
 
-                student.StudentSecondName = txtSecondName.Text;
+            student.StudentSecondName = txtSecondName.Text;
 
             student.StudentThirdName = txtThirdName.Text;
 
@@ -62,7 +108,7 @@ namespace Lecture11_Lesson1
                 validator.ErrorMessage += "Please enter Last name \n";
             }
 
-            if(!(dateTimePickerDOB.Value.Year > (DateTime.Now.Year - 18)))
+            if (!(dateTimePickerDOB.Value.Year > (DateTime.Now.Year - 18)))
                 student.StudentDateOfBirth = dateTimePickerDOB.Value;
             else
             {
@@ -105,70 +151,61 @@ namespace Lecture11_Lesson1
             student.StudentPhone = txtPhone.Text;
             student.StudentMobile = txtMobile.Text;
             // Add your code here (1)
-
-
-
-            if(validator.ErrorExists)
-            {
-                MessageBox.Show(validator.ErrorMessage);
-            }
-            else
-            {
-                // I created this part for testing. This will show you if the data was
-                // entered and stored in the object successfully.
-                string studentInformationReport = $"Student ID: {student.StudentId} \n" +
-                    $"Student First Name: {student.StudentFirstName} \n" +
-                    $"Student Second Name: {student.StudentSecondName} \n" +
-                    $"Student Third Name: {student.StudentThirdName} \n" +
-                    $"Student Last Name: {student.StudentLastName} \n" +
-                    $"Student Date of Birth: {student.StudentDateOfBirth} \n" +
-                    $"Student Gender: {student.StudentGender} \n" +
-                    $"Student Nationality: {student.StudentNationality} \n" +
-                    $"Student Country of Birth: {student.StudentCountryOfBirth} \n" +
-                    $"Student City of Birth: {student.StudentCityOfBirth} \n" +
-                    $"Student Photo Path: {student.StudentPhoto} \n" +
-                    $"Student Email: {student.StudentEmail} \n" +
-                    $"Student Phone: {student.StudentPhone} \n" +
-                    $"Student Mobile: {student.StudentMobile}";
-                // Add your code here (2)
-
-                MessageBox.Show(studentInformationReport);
-
-                studentTable.Students.Add(student);
-
-                BindingSource bindingSource = new BindingSource();
-                bindingSource.DataSource = studentTable.Students;
-                dataGridView1.DataSource = bindingSource;
-
-                studentIdCounter++;
-            }
-
-           
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void PrintStudentReport(Student student)
         {
-            openFileDialogImages.Title = "Browse Images";
-            openFileDialogImages.InitialDirectory = Directory.GetCurrentDirectory();
-            openFileDialogImages.CheckFileExists = true;
-            openFileDialogImages.CheckPathExists = true;
-            openFileDialogImages.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF";
-            openFileDialogImages.ReadOnlyChecked = true;
-            openFileDialogImages.ShowReadOnly = true;
-            openFileDialogImages.FileName = "";
+            string studentInformationReport = $"Student ID: {student.StudentId} \n" +
+                   $"Student First Name: {student.StudentFirstName} \n" +
+                   $"Student Second Name: {student.StudentSecondName} \n" +
+                   $"Student Third Name: {student.StudentThirdName} \n" +
+                   $"Student Last Name: {student.StudentLastName} \n" +
+                   $"Student Date of Birth: {student.StudentDateOfBirth} \n" +
+                   $"Student Gender: {student.StudentGender} \n" +
+                   $"Student Nationality: {student.StudentNationality} \n" +
+                   $"Student Country of Birth: {student.StudentCountryOfBirth} \n" +
+                   $"Student City of Birth: {student.StudentCityOfBirth} \n" +
+                   $"Student Photo Path: {student.StudentPhoto} \n" +
+                   $"Student Email: {student.StudentEmail} \n" +
+                   $"Student Phone: {student.StudentPhone} \n" +
+                   $"Student Mobile: {student.StudentMobile}";
+            // Add your code here (2)
 
-            if(openFileDialogImages.ShowDialog() == DialogResult.OK)
-            {
-                string photoFileName = openFileDialogImages.FileName;
+            MessageBox.Show(studentInformationReport);
+        }
 
-                Bitmap studentImage = new Bitmap(photoFileName);
+        private void DisplayStudentRecords()
+        {
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = studentTable.Students;
+            dataGridViewStudents.DataSource = bindingSource;
+        }
 
-                pictureBoxStudentPicture.Image = studentImage;
+        private void ClearForm()
+        {
+            txtFirstName.Text = string.Empty;
+            txtSecondName.Text = string.Empty;
+            txtThirdName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            dateTimePickerDOB.Value = DateTime.Now;
+            cbCountryOfBirth.SelectedIndex = -1;
+            cbCityOfBirth.SelectedIndex = -1;
+            cbNationality.SelectedIndex = -1;
 
-                student.StudentPhoto = photoFileName;
-            }
+            rbMale.Checked = false;
+            rbFemale.Checked = false;
 
-            
+            txtEmail.Text = string.Empty;
+
+            txtFirstName.Focus();
+        }
+
+        private void dataGridViewStudents_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show($"You have clicked cell no: {e.ColumnIndex} in row {e.RowIndex}");
+
+            txtFirstName.Text = dataGridViewStudents.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtLastName.Text = dataGridViewStudents.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
     }
 }

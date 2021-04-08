@@ -82,7 +82,7 @@ namespace Lecture11_Lesson1
             this.label16 = new System.Windows.Forms.Label();
             this.openFileDialogImages = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewStudents = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -90,7 +90,7 @@ namespace Lecture11_Lesson1
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudentPicture)).BeginInit();
             this.btnPictureUpload.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudents)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSubmit
@@ -598,13 +598,15 @@ namespace Lecture11_Lesson1
             // 
             this.openFileDialogImages.FileName = "openFileDialog1";
             // 
-            // dataGridView1
+            // dataGridViewStudents
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 761);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1402, 150);
-            this.dataGridView1.TabIndex = 15;
+            this.dataGridViewStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStudents.Location = new System.Drawing.Point(19, 761);
+            this.dataGridViewStudents.Name = "dataGridViewStudents";
+            this.dataGridViewStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewStudents.Size = new System.Drawing.Size(1402, 150);
+            this.dataGridViewStudents.TabIndex = 15;
+            this.dataGridViewStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudents_CellClick);
             // 
             // frmStudentEnrollment
             // 
@@ -612,7 +614,7 @@ namespace Lecture11_Lesson1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1433, 968);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewStudents);
             this.Controls.Add(this.btnPictureUpload);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -635,7 +637,7 @@ namespace Lecture11_Lesson1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudentPicture)).EndInit();
             this.btnPictureUpload.ResumeLayout(false);
             this.btnPictureUpload.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudents)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -694,7 +696,7 @@ namespace Lecture11_Lesson1
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.MaskedTextBox txtMobile;
         private System.Windows.Forms.MaskedTextBox txtPhone;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewStudents;
     }
 }
 
