@@ -62,6 +62,8 @@ namespace Lecture11_Lesson1
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMobile = new System.Windows.Forms.MaskedTextBox();
+            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -80,8 +82,7 @@ namespace Lecture11_Lesson1
             this.label16 = new System.Windows.Forms.Label();
             this.openFileDialogImages = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
-            this.txtMobile = new System.Windows.Forms.MaskedTextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -89,6 +90,7 @@ namespace Lecture11_Lesson1
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudentPicture)).BeginInit();
             this.btnPictureUpload.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSubmit
@@ -423,6 +425,22 @@ namespace Lecture11_Lesson1
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Contact Information";
             // 
+            // txtMobile
+            // 
+            this.txtMobile.Location = new System.Drawing.Point(91, 152);
+            this.txtMobile.Mask = "(7)00000000";
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(200, 26);
+            this.txtMobile.TabIndex = 27;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(91, 95);
+            this.txtPhone.Mask = "(7)00000000";
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(200, 26);
+            this.txtPhone.TabIndex = 26;
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -580,28 +598,21 @@ namespace Lecture11_Lesson1
             // 
             this.openFileDialogImages.FileName = "openFileDialog1";
             // 
-            // txtPhone
+            // dataGridView1
             // 
-            this.txtPhone.Location = new System.Drawing.Point(91, 95);
-            this.txtPhone.Mask = "(7)00000000";
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(200, 26);
-            this.txtPhone.TabIndex = 26;
-            // 
-            // txtMobile
-            // 
-            this.txtMobile.Location = new System.Drawing.Point(91, 152);
-            this.txtMobile.Mask = "(7)00000000";
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(200, 26);
-            this.txtMobile.TabIndex = 27;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 761);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1402, 150);
+            this.dataGridView1.TabIndex = 15;
             // 
             // frmStudentEnrollment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1433, 735);
+            this.ClientSize = new System.Drawing.Size(1433, 968);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnPictureUpload);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -624,6 +635,7 @@ namespace Lecture11_Lesson1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudentPicture)).EndInit();
             this.btnPictureUpload.ResumeLayout(false);
             this.btnPictureUpload.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -682,6 +694,7 @@ namespace Lecture11_Lesson1
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.MaskedTextBox txtMobile;
         private System.Windows.Forms.MaskedTextBox txtPhone;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

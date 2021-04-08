@@ -136,7 +136,9 @@ namespace Lecture11_Lesson1
 
                 studentTable.Students.Add(student);
 
-                
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = studentTable.Students;
+                dataGridView1.DataSource = bindingSource;
 
                 studentIdCounter++;
             }
