@@ -75,9 +75,7 @@ namespace Lecture11_Lesson1
                 pictureBoxStudentPicture.Image = studentImage;
 
                 student.StudentPhoto = photoFileName;
-            }
-
-            
+            }     
         }
 
         private void ReadFormData()
