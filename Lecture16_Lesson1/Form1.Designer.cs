@@ -34,10 +34,12 @@ namespace Lecture16_Lesson1
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +48,9 @@ namespace Lecture16_Lesson1
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maleVoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.femaleVoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutTextEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripEditor = new System.Windows.Forms.StatusStrip();
@@ -55,11 +60,6 @@ namespace Lecture16_Lesson1
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.speakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maleVoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.femaleVoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.statusStripEditor.SuspendLayout();
             this.SuspendLayout();
@@ -111,6 +111,11 @@ namespace Lecture16_Lesson1
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -135,42 +140,47 @@ namespace Lecture16_Lesson1
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redoToolStripMenuItem.Text = "Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cutToolStripMenuItem.Text = "Cut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
@@ -187,23 +197,46 @@ namespace Lecture16_Lesson1
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // colorToolStripMenuItem
             // 
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.colorToolStripMenuItem.Text = "Color";
             this.colorToolStripMenuItem.Click += new System.EventHandler(this.colorToolStripMenuItem_Click);
             // 
             // backgroundColorToolStripMenuItem
             // 
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
-            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.backgroundColorToolStripMenuItem.Text = "Background Color";
             this.backgroundColorToolStripMenuItem.Click += new System.EventHandler(this.backgroundColorToolStripMenuItem_Click);
+            // 
+            // speakToolStripMenuItem
+            // 
+            this.speakToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.maleVoiceToolStripMenuItem,
+            this.femaleVoiceToolStripMenuItem});
+            this.speakToolStripMenuItem.Name = "speakToolStripMenuItem";
+            this.speakToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.speakToolStripMenuItem.Text = "Speak";
+            // 
+            // maleVoiceToolStripMenuItem
+            // 
+            this.maleVoiceToolStripMenuItem.Name = "maleVoiceToolStripMenuItem";
+            this.maleVoiceToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.maleVoiceToolStripMenuItem.Text = "Male Voice";
+            this.maleVoiceToolStripMenuItem.Click += new System.EventHandler(this.maleVoiceToolStripMenuItem_Click);
+            // 
+            // femaleVoiceToolStripMenuItem
+            // 
+            this.femaleVoiceToolStripMenuItem.Name = "femaleVoiceToolStripMenuItem";
+            this.femaleVoiceToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.femaleVoiceToolStripMenuItem.Text = "Female Voice";
+            this.femaleVoiceToolStripMenuItem.Click += new System.EventHandler(this.femaleVoiceToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -247,39 +280,6 @@ namespace Lecture16_Lesson1
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // speakToolStripMenuItem
-            // 
-            this.speakToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.maleVoiceToolStripMenuItem,
-            this.femaleVoiceToolStripMenuItem});
-            this.speakToolStripMenuItem.Name = "speakToolStripMenuItem";
-            this.speakToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.speakToolStripMenuItem.Text = "Speak";
-            // 
-            // maleVoiceToolStripMenuItem
-            // 
-            this.maleVoiceToolStripMenuItem.Name = "maleVoiceToolStripMenuItem";
-            this.maleVoiceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.maleVoiceToolStripMenuItem.Text = "Male Voice";
-            this.maleVoiceToolStripMenuItem.Click += new System.EventHandler(this.maleVoiceToolStripMenuItem_Click);
-            // 
-            // femaleVoiceToolStripMenuItem
-            // 
-            this.femaleVoiceToolStripMenuItem.Name = "femaleVoiceToolStripMenuItem";
-            this.femaleVoiceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.femaleVoiceToolStripMenuItem.Text = "Female Voice";
-            this.femaleVoiceToolStripMenuItem.Click += new System.EventHandler(this.femaleVoiceToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
             // frmTextEditor
             // 

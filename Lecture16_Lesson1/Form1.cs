@@ -26,19 +26,24 @@ namespace Lecture16_Lesson1
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Text Files | *.txt";
+            openFileDialog1.Filter = "Rich Text Files | *.rtf";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 toolStripStatusLabel1.Text = "Loading file";
-                richTextBoxEditor.Text = File.ReadAllText(openFileDialog1.FileName);
+                richTextBoxEditor.LoadFile(openFileDialog1.FileName);
                 toolStripStatusLabel1.Text = "File loaded successfully";
             }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.ShowDialog();
-            richTextBoxEditor.SaveFile(saveFileDialog1.FileName);
+            saveFileDialog1.Filter = "Rich Text Files | *.rtf";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                toolStripStatusLabel1.Text = "Saving file";
+                richTextBoxEditor.SaveFile(saveFileDialog1.FileName);
+                toolStripStatusLabel1.Text = "File saved";
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,5 +117,6 @@ namespace Lecture16_Lesson1
             voice.SelectVoiceByHints(VoiceGender.Female);
             voice.SpeakAsync(richTextBoxEditor.Text);
         }
+
     }
 }
