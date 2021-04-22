@@ -27,6 +27,10 @@ namespace Lecture19_Lesson1
             {
                 tabControlPages.SelectedIndex = 1;
             }
+            else if(treeViewNavigation.SelectedNode.Name == "Node3")
+            {
+                tabControlPages.SelectedIndex = 2;
+            }
         }
     }
 }

@@ -31,20 +31,23 @@ namespace Lecture19_Lesson1
         {
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("My Profile");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Employee Records");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("System Navigation", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Reports");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("System Navigation", new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode2});
+            treeNode2,
+            treeNode3});
             this.panelNavigation = new System.Windows.Forms.Panel();
+            this.treeViewNavigation = new System.Windows.Forms.TreeView();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.lblLogo = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.panelFooter = new System.Windows.Forms.Panel();
-            this.lblLogo = new System.Windows.Forms.Label();
-            this.treeViewNavigation = new System.Windows.Forms.TreeView();
             this.tabControlPages = new System.Windows.Forms.TabControl();
             this.tabPageProfile = new System.Windows.Forms.TabPage();
-            this.tabPageEmployeeRecords = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPageEmployeeRecords = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabPageReports = new System.Windows.Forms.TabPage();
             this.panelNavigation.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.tabControlPages.SuspendLayout();
@@ -64,6 +67,28 @@ namespace Lecture19_Lesson1
             this.panelNavigation.Size = new System.Drawing.Size(257, 808);
             this.panelNavigation.TabIndex = 0;
             // 
+            // treeViewNavigation
+            // 
+            this.treeViewNavigation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(61)))), ((int)(((byte)(99)))));
+            this.treeViewNavigation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewNavigation.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewNavigation.ForeColor = System.Drawing.Color.White;
+            this.treeViewNavigation.Location = new System.Drawing.Point(0, 102);
+            this.treeViewNavigation.Name = "treeViewNavigation";
+            treeNode1.Name = "Node1";
+            treeNode1.Text = "My Profile";
+            treeNode2.Name = "Node2";
+            treeNode2.Text = "Employee Records";
+            treeNode3.Name = "Node3";
+            treeNode3.Text = "Reports";
+            treeNode4.Name = "Node0";
+            treeNode4.Text = "System Navigation";
+            this.treeViewNavigation.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode4});
+            this.treeViewNavigation.Size = new System.Drawing.Size(255, 704);
+            this.treeViewNavigation.TabIndex = 1;
+            this.treeViewNavigation.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewNavigation_AfterSelect);
+            // 
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(36)))), ((int)(((byte)(59)))));
@@ -74,6 +99,17 @@ namespace Lecture19_Lesson1
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(255, 102);
             this.panelLogo.TabIndex = 0;
+            // 
+            // lblLogo
+            // 
+            this.lblLogo.AutoSize = true;
+            this.lblLogo.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogo.ForeColor = System.Drawing.Color.White;
+            this.lblLogo.Location = new System.Drawing.Point(69, 34);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(100, 25);
+            this.lblLogo.TabIndex = 0;
+            this.lblLogo.Text = "My Logo";
             // 
             // panelHeader
             // 
@@ -95,41 +131,11 @@ namespace Lecture19_Lesson1
             this.panelFooter.Size = new System.Drawing.Size(990, 45);
             this.panelFooter.TabIndex = 2;
             // 
-            // lblLogo
-            // 
-            this.lblLogo.AutoSize = true;
-            this.lblLogo.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogo.ForeColor = System.Drawing.Color.White;
-            this.lblLogo.Location = new System.Drawing.Point(69, 34);
-            this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(100, 25);
-            this.lblLogo.TabIndex = 0;
-            this.lblLogo.Text = "My Logo";
-            // 
-            // treeViewNavigation
-            // 
-            this.treeViewNavigation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(61)))), ((int)(((byte)(99)))));
-            this.treeViewNavigation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewNavigation.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeViewNavigation.ForeColor = System.Drawing.Color.White;
-            this.treeViewNavigation.Location = new System.Drawing.Point(0, 102);
-            this.treeViewNavigation.Name = "treeViewNavigation";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "My Profile";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Employee Records";
-            treeNode3.Name = "Node0";
-            treeNode3.Text = "System Navigation";
-            this.treeViewNavigation.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            this.treeViewNavigation.Size = new System.Drawing.Size(255, 704);
-            this.treeViewNavigation.TabIndex = 1;
-            this.treeViewNavigation.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewNavigation_AfterSelect);
-            // 
             // tabControlPages
             // 
             this.tabControlPages.Controls.Add(this.tabPageProfile);
             this.tabControlPages.Controls.Add(this.tabPageEmployeeRecords);
+            this.tabControlPages.Controls.Add(this.tabPageReports);
             this.tabControlPages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPages.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlPages.Location = new System.Drawing.Point(257, 103);
@@ -149,6 +155,15 @@ namespace Lecture19_Lesson1
             this.tabPageProfile.Text = "My Profile";
             this.tabPageProfile.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "This is the user profile";
+            // 
             // tabPageEmployeeRecords
             // 
             this.tabPageEmployeeRecords.Controls.Add(this.label2);
@@ -160,15 +175,6 @@ namespace Lecture19_Lesson1
             this.tabPageEmployeeRecords.Text = "Employee Records";
             this.tabPageEmployeeRecords.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "This is the user profile";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -177,6 +183,16 @@ namespace Lecture19_Lesson1
             this.label2.Size = new System.Drawing.Size(251, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "This is the employee records page";
+            // 
+            // tabPageReports
+            // 
+            this.tabPageReports.Location = new System.Drawing.Point(4, 28);
+            this.tabPageReports.Name = "tabPageReports";
+            this.tabPageReports.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageReports.Size = new System.Drawing.Size(982, 628);
+            this.tabPageReports.TabIndex = 2;
+            this.tabPageReports.Text = "Reports";
+            this.tabPageReports.UseVisualStyleBackColor = true;
             // 
             // frmAdmin
             // 
@@ -214,6 +230,7 @@ namespace Lecture19_Lesson1
         private System.Windows.Forms.TabPage tabPageEmployeeRecords;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabPageReports;
     }
 }
 
