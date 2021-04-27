@@ -51,6 +51,9 @@ namespace Lecture18_Lesson1
             MessageBox.Show("You changed the text inside.");
         }
 
-      
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("This form has been closed by the user.");
+        }
     }
 }

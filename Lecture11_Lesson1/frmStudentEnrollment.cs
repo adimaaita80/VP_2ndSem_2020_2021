@@ -77,7 +77,16 @@ namespace Lecture11_Lesson1
                 student.StudentPhoto = photoFileName;
             }     
         }
+        private void dataGridViewStudents_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show($"You have clicked cell no: {e.ColumnIndex} in row {e.RowIndex}");
 
+            txtFirstName.Text = dataGridViewStudents.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtLastName.Text = dataGridViewStudents.Rows[e.RowIndex].Cells[5].Value.ToString();
+        }
+
+
+        #region UserGeneratedMethods
         private void ReadFormData()
         {
             student = new Student();
@@ -197,13 +206,8 @@ namespace Lecture11_Lesson1
 
             txtFirstName.Focus();
         }
+        #endregion
 
-        private void dataGridViewStudents_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //MessageBox.Show($"You have clicked cell no: {e.ColumnIndex} in row {e.RowIndex}");
-
-            txtFirstName.Text = dataGridViewStudents.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtLastName.Text = dataGridViewStudents.Rows[e.RowIndex].Cells[5].Value.ToString();
-        }
+        
     }
 }
