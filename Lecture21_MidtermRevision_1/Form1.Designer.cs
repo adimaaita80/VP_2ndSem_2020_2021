@@ -69,7 +69,7 @@ namespace Lecture21_MidtermRevision_1
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(330, 258);
+            this.checkBox2.Location = new System.Drawing.Point(396, 266);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(92, 17);
             this.checkBox2.TabIndex = 3;
@@ -79,7 +79,7 @@ namespace Lecture21_MidtermRevision_1
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.button2.Location = new System.Drawing.Point(162, 191);
+            this.button2.Location = new System.Drawing.Point(396, 207);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -88,7 +88,7 @@ namespace Lecture21_MidtermRevision_1
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(393, 344);
+            this.textBox1.Location = new System.Drawing.Point(393, 319);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(338, 20);
             this.textBox1.TabIndex = 5;
