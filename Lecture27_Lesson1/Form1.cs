@@ -14,47 +14,14 @@ namespace Lecture27_Lesson1
     {
         double firstNumber;
         double secondNumber;
-        double result;
 
-        CalculatorState currentState = CalculatorState.initial;
+        CalculatorState currentState = CalculatorState.firstNumberInput;
 
         OperationState currentOperation;
 
         public frmCalculator()
         {
             InitializeComponent();
-        }
-
-
-        private void allNumericButtons_click(object sender, EventArgs e)
-        {
-            Button currentButton = (Button)sender;
-
-            txtResult.Text += currentButton.Text;
-        }
-
-        private void allOperationsButtons_click(object sender, EventArgs e)
-        {
-            firstNumber = double.Parse(txtResult.Text);
-
-            Button currentButton = (Button)sender;
-
-            if(currentButton.Name == "buttonPlus")
-            {
-                currentOperation = OperationState.add;
-            }
-            else if(currentButton.Name == "buttonMinus")
-            {
-                currentOperation = OperationState.sub;
-            }
-            else if (currentButton.Name == "buttonMultiply")
-            {
-                currentOperation = OperationState.mul;
-            }
-            else if (currentButton.Name == "buttonDivide")
-            {
-                currentOperation = OperationState.div;
-            }
         }
 
         private void frmCalculator_Load(object sender, EventArgs e)
@@ -74,6 +41,82 @@ namespace Lecture27_Lesson1
             this.buttonMinus.Click += new EventHandler(allOperationsButtons_click);
             this.buttonMultiply.Click += new EventHandler(allOperationsButtons_click);
             this.buttonDivision.Click += new EventHandler(allOperationsButtons_click);
+        }
+
+        private void allNumericButtons_click(object sender, EventArgs e)
+        {
+            Button currentButton = (Button)sender;
+
+            txtResult.Text += currentButton.Text;
+        }
+
+        private void allOperationsButtons_click(object sender, EventArgs e)
+        {
+            if(txtResult.Text != "")
+            {
+                firstNumber = double.Parse(txtResult.Text);
+
+                txtResult.Text = "";
+
+                currentState = CalculatorState.secondNumberInput;
+
+                Button currentButton = (Button)sender;
+
+                if (currentButton.Name == "buttonPlus")
+                {
+                    currentOperation = OperationState.add;
+                }
+                else if (currentButton.Name == "buttonMinus")
+                {
+                    currentOperation = OperationState.sub;
+                }
+                else if (currentButton.Name == "buttonMultiply")
+                {
+                    currentOperation = OperationState.mul;
+                }
+                else if (currentButton.Name == "buttonDivision")
+                {
+                    currentOperation = OperationState.div;
+                }
+            }
+            
+        }
+
+        private void buttonEqual_Click(object sender, EventArgs e)
+        {
+            if(currentState == CalculatorState.secondNumberInput && txtResult.Text != "")
+            {
+                double result = 0;
+                secondNumber = double.Parse(txtResult.Text);
+                
+                if(currentOperation == OperationState.add)
+                {
+                    result = firstNumber + secondNumber;
+                }
+                else if(currentOperation == OperationState.sub)
+                {
+                    result = firstNumber - secondNumber;
+                }
+                else if (currentOperation == OperationState.mul)
+                {
+                    result = firstNumber * secondNumber;
+                }
+                else if (currentOperation == OperationState.div)
+                {
+                    result = firstNumber / secondNumber;
+                }
+
+                txtResult.Text = result.ToString();
+                currentState = CalculatorState.firstNumberInput;
+            }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            txtResult.Text = "";
+            firstNumber = 0;
+            secondNumber = 0;
+            currentState = CalculatorState.firstNumberInput;
         }
     }
 }

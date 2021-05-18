@@ -50,6 +50,7 @@ namespace Lecture27_Lesson1
             // 
             // txtResult
             // 
+            this.txtResult.Enabled = false;
             this.txtResult.Location = new System.Drawing.Point(13, 13);
             this.txtResult.Name = "txtResult";
             this.txtResult.Size = new System.Drawing.Size(434, 27);
@@ -153,6 +154,7 @@ namespace Lecture27_Lesson1
             this.buttonEqual.TabIndex = 13;
             this.buttonEqual.Text = "=";
             this.buttonEqual.UseVisualStyleBackColor = true;
+            this.buttonEqual.Click += new System.EventHandler(this.buttonEqual_Click);
             // 
             // buttonPlus
             // 
@@ -198,6 +200,7 @@ namespace Lecture27_Lesson1
             this.buttonCancel.TabIndex = 18;
             this.buttonCancel.Text = "C";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // frmCalculator
             // 

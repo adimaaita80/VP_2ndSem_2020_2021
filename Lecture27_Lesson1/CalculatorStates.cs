@@ -8,9 +8,8 @@ namespace Lecture27_Lesson1
 {
     public enum CalculatorState
     {
-        initial = 0,
-        firstInputReceived = 1,
-        secondInputReceived = 2
+        firstNumberInput = 1,
+        secondNumberInput = 2
     }
 
     public enum OperationState
