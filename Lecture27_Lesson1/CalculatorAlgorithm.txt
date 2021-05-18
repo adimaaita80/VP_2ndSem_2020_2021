@@ -1,0 +1,10 @@
+﻿Calculator operation
+
+1. The user enters the first number by clicking on the numeric buttons.
+2. When the user selects one of the four mathematical operations (-, +, *, /) the first
+number is stored in a variable.
+3. The screen is cleared and the user now can start to enter the second number using
+the numeric buttons.
+4. When the user clicks the equal (=) button, the second number is also stored in a
+different variable, then the appropriate mathematical function is executed.
+5. The final result is shown on the screen.
