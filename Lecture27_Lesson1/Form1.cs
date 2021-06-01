@@ -118,5 +118,7 @@ namespace Lecture27_Lesson1
             secondNumber = 0;
             currentState = CalculatorState.firstNumberInput;
         }
+
+
     }
 }
